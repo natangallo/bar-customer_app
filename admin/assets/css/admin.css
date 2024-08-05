@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assicura che il contenitore copra tutta l'altezza della finestra */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    position: fixed; /* Fissa l'header nella parte superiore */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Assicura che l'header sia sopra gli altri elementi */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    flex: 1; /* Permette al contenuto principale di espandersi */
+    padding: 80px 20px 20px; /* Aggiunge spazio per evitare sovrapposizione con l'header */
+    background-color: white;
+    margin: 20px;
+    border-radius: 5px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+footer {
+    text-align: center;
+    padding: 0.3em;
+    background-color: #333;
+    color: white;
+    position: fixed; /* Fissa il footer nella parte inferiore */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+    color: red;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.user-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.product-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.product-column {
+    width: 48%;
+    overflow-y: auto; /* Permette lo scorrimento verticale */
+    max-height: 600px; /* Imposta l'altezza massima per lo scorrimento */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.product-list {
+    margin-bottom: 20px;
+}
+
+.product-item {
+    margin-bottom: 10px;
+}
+
+.edit-form {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.view-toggle {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: space-between; /* Divide lo spazio tra le due sezioni */
+    flex-wrap: wrap;
+    gap: 10px; /* Spazio tra i quadrati */
+    padding: 10px;
+}
+
+.grid-section {
+    flex: 1;
+    min-width: 200px; /* Larghezza minima per ogni sezione */
+    box-sizing: border-box;
+}
+
+.grid-item {
+    border: 1px solid #ddd; /* Bordo dei quadrati */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    background-color: #f9f9f9; /* Colore di sfondo dei quadrati */
+    transition: background-color 0.3s;
+    flex: 1;
+    max-width: 120px; /* Dimensione massima del quadrato */
+    max-height: 120px;
+}
+
+.grid-item.selected {
+    background-color: #e0e0e0; /* Colore di conferma della selezione */
+}
+
+/* Adatta la dimensione dei quadrati in base allo spazio disponibile */
+@media (min-width: 600px) {
+    .grid-item {
+        flex-basis: calc(33.33% - 20px); /* 3 quadrati per riga con spazio per il gap */
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-item {
+        flex-basis: calc(50% - 20px); /* 2 quadrati per riga con spazio per il gap */
+    }
+}
+
+@media (max-width: 400px) {
+    .grid-item {
+        flex-basis: calc(100% - 20px); /* 1 quadrato per riga con spazio per il gap */
+    }
+}
+.grid-item .product-name,
+.grid-item .product-price {
+    margin: 5px 0;
+    word-wrap: break-word; /* Gestisce il testo lungo */
+}
+
+.grid-item:hover {
+    background-color: #e0e0e0;
+}
+
+.grid-item.selected {
+    background-color: #ff9800;
+    color: #fff;
+}

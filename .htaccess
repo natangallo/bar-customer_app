@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect to remove 'public' from the URL
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Rewrite rule to handle requests
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php?url=$1 [QSA,L]
